@@ -1,0 +1,41 @@
+{
+  "name": "netflix-gpt",
+  "version": "1.0.0",
+  "description": "Building a whole new netflix application",
+  "keywords": [
+    "netflix",
+    "bemax"
+  ],
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel run index.html",
+    "test": "jest"
+  },
+  "homepage": "https://github.com/winkCodeGit1/netflix-gpt#readme",
+  "bugs": {
+    "url": "https://github.com/winkCodeGit1/netflix-gpt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/winkCodeGit1/netflix-gpt.git"
+  },
+  "license": "ISC",
+  "author": "suman saurav das",
+  "type": "commonjs",
+  "main": "index.js",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.0.11",
+    "firebase": "^11.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2",
+    "tailwindcss": "^4.0.11"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  }
+}
