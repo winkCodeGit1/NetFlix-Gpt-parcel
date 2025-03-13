@@ -18,6 +18,7 @@
 - Fetch Movies from TMDB Movies
 - BugFix - Sign up user displayname and profile picture update
 - BugFix - If the user is not logged in Redirect/browse to login page and vice versa
+- Unsubscribed to the unauthstatechanged method
 
 
 # Features 
