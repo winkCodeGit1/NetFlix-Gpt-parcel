@@ -6,6 +6,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfi
 import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
+import { userAvatar } from "../utils/constants";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -35,22 +36,28 @@ const Login = () => {
     if (!isSignedIn) {
       ////signup logic 
       createUserWithEmailAndPassword(auth, email?.current?.value, password?.current?.value)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           // Signed up 
           const user = userCredential.user;
           console.log(user, '-----user signed up');
-          updateProfile(user, {
-            displayName: fullName?.current?.value, photoURL: "https://avatars.githubusercontent.com/u/102747618?s=400&u=1378f4a17f3b08f9ea2deea701c1ac51720e4e75&v=4"
-          }).then(() => {
-            // Profile updated!
-            const { uid, displayName, email, photoURL } = auth.currentUser;
-            dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
-            setIsSignedIn(true);
-          }).catch((error) => {
-            // An error occurred
-            const errorMessage = error.message;
-            setErrMessage(errMessage);
-          });
+
+          try {
+            await updateProfile(user, {
+              displayName: fullName?.current?.value, photoURL: userAvatar
+            }).then(() => {
+              // Profile updated!
+              console.log(auth.currentUser, '----currentuser')
+              const { uid, displayName, email, photoURL } = auth.currentUser;
+              dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+              setIsSignedIn(true);
+            }).catch((error) => {
+              // An error occurred
+              const errorMessage = error.message;
+              setErrMessage(errMessage);
+            });
+          } catch (error) {
+            console.log(error.message);
+          }
 
         })
         .catch((error) => {
