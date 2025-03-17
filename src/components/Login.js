@@ -39,14 +39,12 @@ const Login = () => {
         .then(async (userCredential) => {
           // Signed up 
           const user = userCredential.user;
-          console.log(user, '-----user signed up');
 
           try {
             await updateProfile(user, {
               displayName: fullName?.current?.value, photoURL: userAvatar
             }).then(() => {
               // Profile updated!
-              console.log(auth.currentUser, '----currentuser')
               const { uid, displayName, email, photoURL } = auth.currentUser;
               dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
               setIsSignedIn(true);
@@ -70,7 +68,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in 
           const user = userCredential.user;
-          console.log(user, '---sign in user');
         })
         .catch((error) => {
           const errorCode = error.code;
