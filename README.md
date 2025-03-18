@@ -28,7 +28,12 @@
 - Fetch fata for Trailer video
 - Embedded the youtube video & make it auto play
 - Tailwind classes to make Main Container to look awesome
-
+- Build Secondary Component
+- Build Movie List
+- Build Movie Card
+- TMDB Image CDN URL
+- Made the browser page amazing with tailwind css
+- usePopularmovies custom hooks
 
 
 # Features 
