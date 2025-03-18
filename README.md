@@ -34,6 +34,10 @@
 - TMDB Image CDN URL
 - Made the browser page amazing with tailwind css
 - usePopularmovies custom hooks
+- GPT Search Page
+- GPT Search bar
+- (Bonus) Multi-Language feature in our app
+- Integrate GPT APIS(get operation)
 
 
 # Features 
@@ -50,3 +54,8 @@
 - NetFlix - GPT
     - Search Bar 
     - Movie Suggestion
+
+
+# suman's learning
+- Nodejs - 20.17.0
+- npm - 11.1.0

@@ -12,3 +12,16 @@ export const movieOptions = {
 
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/original/";
+
+
+export const LANGUAGES = {
+    en: { label: "English", code: "en" },
+    hi: { label: "Hindi", code: "hi" },
+    fr: { label: "French", code: "fr" },
+    es: { label: "Spanish", code: "es" },
+    de: { label: "German", code: "de" },
+    zh: { label: "Chinese", code: "zh" },
+    ja: { label: "Japanese", code: "ja" },
+};
+
+

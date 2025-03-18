@@ -1,15 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { Logo } from "../utils/constants";
+import { LANGUAGES, Logo } from "../utils/constants";
+import { addToggleSearch } from "../utils/gptSlice";
+import { addCodeLang } from "../utils/languageSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+  const toggleGPT = useSelector((store) => store.gpt?.toggleSearch);
+
+
   const handleSignOut = () => {
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -36,6 +41,19 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+
+  const handleGptToggle = () => {
+    dispatch(addToggleSearch())
+  }
+
+  const [selectedLanguage, setSelectedLanguage] = useState("en");
+
+  const handleLanguageChange = (event) => {
+    setSelectedLanguage(event.target.value);
+    dispatch(addCodeLang(event.target.value));
+  };
+
+
   return (
     <>
       <div className="absolute w-full px-8 py-4 flex justify-between items-center bg-gradient-to-b from-black z-20">
@@ -45,6 +63,25 @@ const Header = () => {
         />
         {user &&
           <div className="flex items-center space-x-4">
+
+            {toggleGPT && <select
+              value={selectedLanguage}
+              onChange={handleLanguageChange}
+              className="block w-48 px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500"
+            >
+              {Object.entries(LANGUAGES).map(([key, { label }]) => (
+                <option key={key} value={key}>
+                  {label}
+                </option>
+              ))}
+            </select>}
+
+
+            <button onClick={handleGptToggle}
+              className="bg-amber-700 text-white font-bold px-4 py-2 rounded-lg hover:bg-amber-600" >
+              {!toggleGPT ? "GPT Search" : "Home Page"}
+            </button>
+
             <img
               className="w-10 h-10 rounded-full object-cover border border-white"
               src={user?.photoURL}

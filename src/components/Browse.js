@@ -6,12 +6,16 @@ import SecondaryContainer from './SecondaryContainer';
 import useGetPopularMovies from '../hooks/useGetPopularMovies';
 import useGetTopTrendingMovies from '../hooks/useGetTopTrendingMovies';
 import useGetUpcomingMovies from '../hooks/useGetUpcomingMovies';
+import { useSelector } from 'react-redux';
+import GptSearch from './GptSearch';
 
 const Browse = () => {
   useGetNowMoviePlaying();
   useGetPopularMovies();
   useGetTopTrendingMovies();
   useGetUpcomingMovies();
+
+  const toggleGpt = useSelector(store => store.gpt?.toggleSearch);
 
   return (
     <div >
@@ -27,8 +31,14 @@ const Browse = () => {
         - Cards * n
 
     *} */ }
-      <MainContainer />
-      <SecondaryContainer />
+
+
+      {toggleGpt ? <GptSearch /> :
+        <>
+          <MainContainer />
+          <SecondaryContainer />
+        </>}
+
 
     </div>
   )
