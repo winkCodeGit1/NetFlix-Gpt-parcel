@@ -79,7 +79,7 @@ const Header = () => {
 
             <button onClick={handleGptToggle}
               className="bg-amber-700 text-white font-bold px-4 py-2 rounded-lg hover:bg-amber-600" >
-              {!toggleGPT ? "GPT Search" : "Home Page"}
+              {!toggleGPT ? "AI search" : "Home Page"}
             </button>
 
             <img
