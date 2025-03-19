@@ -27,6 +27,7 @@
     "@reduxjs/toolkit": "^2.6.1",
     "@tailwindcss/postcss": "^4.0.11",
     "firebase": "^11.4.0",
+    "openai": "^4.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.2.0",
@@ -37,6 +38,7 @@
     "last 2 versions"
   ],
   "devDependencies": {
+    "buffer": "^6.0.3",
     "parcel": "^2.13.3",
     "process": "^0.11.10"
   }
