@@ -21,7 +21,7 @@ const GptSearch = () => {
         // });
         // console.log(completion, '----completion');
 
-        const queryText = "Act as Movie Recomendation System that suggest some movies for the query : " + searchText.current.value + ".only give me names of 5 movies, comma separated like the example result given ahead. Example Result: Gadar,Sholay,Don,Golmaal,krish";
+        const queryText = "Act as Movie Recomendation System that suggest some movies for the query : " + searchText.current.value + ".only give me names of 5 movies no need to give any other text, comma separated like the example result given ahead. Example Result: Gadar,Sholay,Don,Golmaal,krish";
 
         const result = await runGemni(!isGPTEnabled ? searchText.current.value : queryText);
         setResponseText(result);
@@ -56,7 +56,7 @@ const GptSearch = () => {
 
             {!isGPTEnabled &&
                 <div className="absolute top-[65%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-1/2">
-                    <div className="bg-gray-900 text-white p-6 rounded-lg shadow-lg min-h-[150px] max-h-[300px] overflow-y-auto">
+                    <div className="bg-gray-900 text-white p-6 rounded-lg shadow-lg min-h-[150px] max-h-[300px] overflow-y-auto no-scrollbar">
                         {responseText || "Response will appear here..."}
                     </div>
                 </div>}
