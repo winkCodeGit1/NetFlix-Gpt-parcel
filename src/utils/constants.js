@@ -9,9 +9,18 @@ export const movieOptions = {
   headers: {
     accept: "application/json",
     Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxYzM2MGRhMjRhM2UyOWJhODA0MGQwODc5ZjliNmVjMiIsIm5iZiI6MTc0MTg3Mjc4My40OTksInN1YiI6IjY3ZDJkZThmNzZhOWQ3MzQ2NzgxMzAyMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.09v4Lczj0v9iZh2kmM9SbTUhONdTSbFkiEi5N0JLOuY",
+      "Bearer " + process.env.REACT_APP_TMDB_KEY,
   },
 };
+
+// export const movieOptions = {
+//   method: "GET",
+//   headers: {
+//     accept: "application/json",
+//     Authorization:
+//       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzY2JmZDczM2IzNDJiNzE5OTNiM2NhMmJkZTYxOTE4MyIsIm5iZiI6MTc0MTg3Mjc4My40OTksInN1YiI6IjY3ZDJkZThmNzZhOWQ3MzQ2NzgxMzAyMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Ucp9kyU0mdcSqeSfITTfG-m--1tBybYbiWn6fV7nM18",
+//   },
+// };
 
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/original/";
 
@@ -27,4 +36,5 @@ export const LANGUAGES = {
 
 // export const OPENAI_KEY = process.env.REACT_APP_OPENAI_API_KEY;
 // export const GEMINI_KEY = process.env.REACT_APP_GEMINI_API_KEY;
-export const GEMINI_KEY = "AIzaSyC1GzvazWVAgPn14N_vP1zKiUIkoA5wplo";
+// export const GEMINI_KEY = "AIzaSyC1GzvazWVAgPn14N_vP1zKiUIkoA5wplo";
+export const GEMINI_KEY = process.env.REACT_APP_GEMINI_KEY;
