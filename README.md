@@ -34,10 +34,17 @@
 - TMDB Image CDN URL
 - Made the browser page amazing with tailwind css
 - usePopularmovies custom hooks
-- GPT Search Page
-- GPT Search bar
+- GPT Search Page / Get Open AI Api Key
+- GPT Search bar / Gpt Search API Call
+- Integrate GPT APIS(get operation) with key i used gemini
 - (Bonus) Multi-Language feature in our app
-- Integrate GPT APIS(get operation)
+- fetched gptMoviesSuggestions from TMDB
+- created gptSlice added data
+- Resused Movie List component to make movie suggestion container
+- Memoization
+- Added .env file
+- Adding .env file to gitignore
+- Made our Site Responsive
 
 
 # Features 

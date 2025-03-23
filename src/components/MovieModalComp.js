@@ -1,7 +1,7 @@
 import React from "react";
 
 const MovieModalComp = ({ isOpen, onClose, movie }) => {
-  if (!isOpen) return;
+  if (!isOpen || !movie) return;
 
   return (
     <div className="fixed inset-0 flex justify-center items-center z-50 backdrop-blur-sm">
