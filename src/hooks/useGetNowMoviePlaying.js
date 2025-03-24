@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addNowPlayingMovies } from "../utils/movieSlice";
+import {
+  addNowPlayingMovies,
+  clearNowPlayingMovies,
+} from "../utils/movieSlice";
 import { useEffect } from "react";
 import { movieOptions } from "../utils/constants";
 
@@ -9,7 +12,6 @@ const useGetNowMoviePlaying = () => {
     (store) => store.movies?.nowPlayingMovies
   );
 
-  console.log(!!nowPlayingMovies, "----nowplaymovv");
 
   const getNowMoviePlaying = async () => {
     const movieList = await fetch(
@@ -23,6 +25,8 @@ const useGetNowMoviePlaying = () => {
   useEffect(() => {
     ///Memomization this is the process so that everytime there will be no  api calls or unnecessary calls
     !nowPlayingMovies && getNowMoviePlaying();
+
+    return () => dispatch(clearNowPlayingMovies());
   }, []);
 };
 
