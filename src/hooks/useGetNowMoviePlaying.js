@@ -12,14 +12,17 @@ const useGetNowMoviePlaying = () => {
     (store) => store.movies?.nowPlayingMovies
   );
 
-
   const getNowMoviePlaying = async () => {
-    const movieList = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?&page=1",
-      movieOptions
-    );
-    const movieListjson = await movieList.json();
-    dispatch(addNowPlayingMovies(movieListjson));
+    try {
+      const movieList = await fetch(
+        "https://api.themoviedb.org/3/movie/now_playing?&page=1",
+        movieOptions
+      );
+      const movieListjson = await movieList.json();
+      dispatch(addNowPlayingMovies(movieListjson));
+    } catch (error) {
+      console.log(error,"--err");
+    }
   };
 
   useEffect(() => {
